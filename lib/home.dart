@@ -200,6 +200,46 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                       "71 likes",
                       "What kind of work??",
                       "5 minutes ago"),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(left: 15.0, bottom: 15.0),
+                        child: Text(
+                          "Suggested for You",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: "Roboto",
+                              fontWeight: FontWeight.w500,
+                              fontSize: 15.0),
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(right: 15.0, bottom: 15.0),
+                        child: Text(
+                          "See All",
+                          style: TextStyle(
+                              color: Colors.blue,
+                              fontFamily: "Roboto",
+                              fontWeight: FontWeight.w500,
+                              fontSize: 15.0),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Container(
+                    height: 275.0,
+                    width: MediaQuery.of(context).size.width,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        _suggestedPost(),
+                        _suggestedPost(),
+                        _suggestedPost(),
+                        _suggestedPost(),
+                      ],
+                    ),
+                  ),
                   _itemPost(
                       "assets/image/player-1.png",
                       "Ronju Vai",
@@ -228,6 +268,73 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
             ),
             Center(
               child: Search(),
+            ),
+          ],
+        ));
+  }
+
+  Widget _suggestedPost() {
+    return Container(
+        margin: EdgeInsets.only(left: 15.0, bottom: 15.0),
+        height: 300.0,
+        width: 200.0,
+        decoration: BoxDecoration(
+            border: Border.all(color: Colors.grey[300], width: 1.0),
+            borderRadius: BorderRadius.circular(7.0)),
+        child: Stack(
+          children: [
+            Positioned(
+              left: 158.0,
+              bottom: 222.0,
+              child: IconButton(
+                icon: Icon(
+                  Icons.close,
+                  color: Colors.grey,
+                  size: 20.0,
+                ),
+                onPressed: () {},
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 9.5),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(
+                      top: 15.0,
+                    ),
+                    height: 170.0,
+                    width: 170.0,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(85.0),
+                        image: DecorationImage(
+                            image: AssetImage("assets/image/player-1.png"),
+                            fit: BoxFit.cover),
+                        color: Colors.white),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(top: 10.0),
+                    height: 25.0,
+                    child: Text(
+                      "New on Instagram",
+                      style: TextStyle(
+                          color: Colors.grey,
+                          fontFamily: "Roboto",
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13.0),
+                    ),
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0.0,
+                      minimumSize: Size(180.0, 30.0),
+                    ),
+                    onPressed: () {},
+                    child: Text("Follow"),
+                  ),
+                ],
+              ),
             ),
           ],
         ));
