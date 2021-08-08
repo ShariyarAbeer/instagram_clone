@@ -233,10 +233,14 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       children: [
-                        _suggestedPost(),
-                        _suggestedPost(),
-                        _suggestedPost(),
-                        _suggestedPost(),
+                        _suggestedPost("assets/image/player-1.png",
+                            "Followed by sada_cf + 4 more"),
+                        _suggestedPost(
+                            "assets/image/player-3.png", "New on Instagram"),
+                        _suggestedPost("assets/image/player-5.png",
+                            "Followed by reza_ali + 24 more"),
+                        _suggestedPost(
+                            "assets/image/player-6.png", "New on Instagram"),
                       ],
                     ),
                   ),
@@ -273,7 +277,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         ));
   }
 
-  Widget _suggestedPost() {
+  Widget _suggestedPost(imgUrl, title) {
     return Container(
         margin: EdgeInsets.only(left: 15.0, bottom: 15.0),
         height: 300.0,
@@ -309,15 +313,14 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(85.0),
                         image: DecorationImage(
-                            image: AssetImage("assets/image/player-1.png"),
-                            fit: BoxFit.cover),
+                            image: AssetImage(imgUrl), fit: BoxFit.cover),
                         color: Colors.white),
                   ),
                   Container(
                     padding: EdgeInsets.only(top: 10.0),
                     height: 25.0,
                     child: Text(
-                      "New on Instagram",
+                      title,
                       style: TextStyle(
                           color: Colors.grey,
                           fontFamily: "Roboto",
