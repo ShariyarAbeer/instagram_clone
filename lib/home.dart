@@ -32,6 +32,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           color: Colors.white,
           child: TabBar(
             controller: tabController,
+            indicatorColor: Colors.white,
             tabs: [
               Tab(
                 icon: Icon(
